@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.xzj.bean"/>
+
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:my.properties" />
+    <bean id="address" class="com.xzj.bean.Address">
+        <property name="addressId" value="1" />
+        <property name="postalCode" value="0731" />
+        <property name="phone" value="${phone}" />
+        <property name="location" value="xxxxxx" />
+    </bean>
+
+    <!--<bean id="store" class="net.marssky.bean.Store"></bean>
+    <bean id="firstNm" class="java.lang.String">
+        <constructor-arg value="Jack" />
+    </bean>-->
+    <!--构造方法注入-->
+    <!--<bean id="customer" class="net.marssky.bean.Customer">
+        <constructor-arg ref="firstNm" />
+        <constructor-arg  ref="store"/>
+    </bean>-->
+    <!--setter方法注入-->
+    <!--<bean id="customer" class="net.marssky.bean.Customer"  >
+        <property name="store" ref="store"/>
+    </bean>-->
+    <!--属性注入-->
+    <!--<bean id="customer" class="net.marssky.bean.Customer" p:store-ref="store">
+
+    </bean>-->
+</beans>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="frm" action="/myspringboot/fileup/form" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" multiple>
+        <button type="submit">上传</button>
+        <button type="button" onclick="upfile()">AJAX上传</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function upfile() {
+            var file0=$("#frm>input[type=file]")[0].files[0];
+            var formData = new FormData();
+            formData.append("file",file0);
+            $.ajax({
+                url:"/myspringboot/fileup/form",
+                type:"post",
+                data:formData,
+                processData:false,
+                contentType:false,
+                success:function (data) {
+                    alert(data);
+                }
+            })
+            alert(1111)
+        }
+    </script>
+</body>
+</html>
